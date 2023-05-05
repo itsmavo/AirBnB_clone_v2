@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# makes and tgz archive to web server
+'''makes and tgz archive to web server'''
 import tarfile
 from fabric.api import local, env, run, put
 from datetime import datetime
@@ -10,7 +10,7 @@ env.user = 'ubuntu'
 env.key_filename = '~/.ssh/rsa'
 
 def do_pack():
-    #packs files and folders
+    '''packs files and folders'''
     try:
         name = "web_static_"+ datetime.now().strftime("%Y%m%d%H%M%S")
         local('mkdir -p versions')
@@ -24,7 +24,7 @@ def do_pack():
         return None
 
 def do_deploy(archive_path):
-    #deploys
+    '''deploys'''
     fd = archive_path.split('/')[1]
     try:
         put(archive_path, '/tmp/{}'.format(fd))
@@ -45,7 +45,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
-    # automates everything
+    '''automates everything'''
     ap = do_pack()
     if ap is None:
         return False

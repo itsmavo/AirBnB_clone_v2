@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# makes tgz archive
+'''makes tgz archive'''
 import tarfile
 from fabric.api import local, env, run, put
 from datetime import datetime
@@ -12,7 +12,7 @@ env.key_filename = '~/.ssh/rsa'
 
 
 def do_pack():
-    # packs file
+    '''packs file'''
     try:
         name = "web_static_" + datetime.now().strftime("%Y%m%d%H%M%S")
         local('mkdir -p versions')

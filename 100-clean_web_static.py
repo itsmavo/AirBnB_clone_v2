@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Fabfile to delete outdated archives
+'''Fabfile to delete outdated archives'''
 import os
 from fabric.api import *
 
