@@ -27,6 +27,7 @@ def do_pack():
 
 
 def do_deploy(archive_path):
+    ''' Carries the deployment sequence '''
     fd = archive_path.split('/')[1]
     try:
         put(archive_path, '/tmp/{}'.format(fd))
