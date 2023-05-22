@@ -10,6 +10,7 @@ from flask import Flask
 from flask import render_template
 
 app = Flask(__name__)
+""" Create a Flask instance """
 
 @app.route("/cities_by_state", strict_slashes=False)
 def cities_by_states():
